@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>IDEO5 테스트</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; line-height: 1.6; max-width: 600px; margin: auto; }
+        .question { margin-bottom: 20px; }
+        .choices button { margin-right: 10px; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <h1>IDEO5 테스트</h1>
+    <div id="test-container"></div>
+    <div id="result" class="hidden">
+        <h2>당신의 사고 인식 코드는:</h2>
+        <p id="code-output" style="font-size: 1.5em; font-weight: bold;"></p>
+        <p>이 코드를 캡처해서 저장하거나, 설문 응답으로 제출해주세요.</p>
+    </div>
+
+    <script>
+        const questions = [
+            { dim: 0, text: "나는 내가 여기에 존재한다는 걸...", a: "온몸으로 느낄 수 있다.", b: "사실 실감이 잘 안 나. 꿈속 같아." },
+            { dim: 0, text: "죽음 이후 나는...", a: "뭔가가 남아 있을 거라고 생각해.", b: "그냥 끝일 거야. 꺼지는 전원처럼." },
+            { dim: 0, text: "세상과 나 사이엔...", a: "분명한 경계가 있고, 나는 독립된 개체다.", b: "경계가 흐릿하고, 나도 흐름의 일부다." },
+            { dim: 1, text: "삶의 의미는...", a: "내가 스스로 만들어가는 것.", b: "원래 없고, 사람들은 그냥 착각하는 거야." },
+            { dim: 1, text: "고통은...", a: "성장의 일부야. 이유가 있다고 생각해.", b: "무의미하고 가능하면 피해야 해." },
+            { dim: 1, text: "나는 어떤 상황에서도...", a: "의미를 찾으려 한다.", b: "의미를 애써 붙이지 않으려 한다." },
+            { dim: 2, text: "나는 지금 내 인생을...", a: "선택하고 있다고 생각해.", b: "환경과 유전자대로 살고 있을 뿐이야." },
+            { dim: 2, text: "삶은 결국...", a: "내가 밀고 나가야 하는 여정.", b: "나를 끌고 가는 흐름에 불과해." },
+            { dim: 2, text: "내 선택은...", a: "나에게 책임이 있다고 느낀다.", b: "이미 짜여진 조건 속에서 일어난 반응일 뿐이다." },
+            { dim: 3, text: "나는 타인의 시선을...", a: "의식하지 않고 내 중심으로 살아가려 해.", b: "꽤 중요하게 느끼고 영향을 받아." },
+            { dim: 3, text: "나라는 존재는...", a: "혼자서도 성립 가능하다고 생각해.", b: "타인과의 관계 안에서만 진짜 존재해." },
+            { dim: 3, text: "나는 혼자 있을 때...", a: "더 나다운 것 같고 편하다.", b: "때로는 존재감이 희미해진다." },
+            { dim: 4, text: "시간은...", a: "앞으로 나아가는 직선이다.", b: "반복되고 돌고 도는 순환이다." },
+            { dim: 4, text: "역사는...", a: "진보하고 축적된다고 믿는다.", b: "결국 되풀이일 뿐, 본질은 안 변한다." },
+            { dim: 4, text: "나는 인생을...", a: "계속 쌓여가는 과정이라 느낀다.", b: "정해진 패턴 안을 순환하는 느낌이다." },
+        ];
+
+        let responses = Array(5).fill(0).map(() => ({ A: 0, B: 0 }));
+        let current = 0;
+
+        const container = document.getElementById("test-container");
+
+        function renderQuestion(index) {
+            const q = questions[index];
+            container.innerHTML = `
+                <div class="question">
+                    <h3>Q${index + 1}. ${q.text}</h3>
+                    <div class="choices">
+                        <button onclick="answer('A')">A. ${q.a}</button>
+                        <button onclick="answer('B')">B. ${q.b}</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function answer(choice) {
+            const dim = questions[current].dim;
+            responses[dim][choice]++;
+            current++;
+            if (current < questions.length) {
+                renderQuestion(current);
+            } else {
+                showResult();
+            }
+        }
+
+        function showResult() {
+            const code = responses.map(r => r.A >= 2 ? 'A' : 'B').join('');
+            container.classList.add("hidden");
+            document.getElementById("result").classList.remove("hidden");
+            document.getElementById("code-output").textContent = code;
+        }
+
+        renderQuestion(current);
+    </script>
+</body>
+</html>

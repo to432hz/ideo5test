@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IDEO5 성향 테스트</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    h1 {
+      text-align: center;
+    }
+    .question {
+      margin-bottom: 20px;
+    }
+    .question p {
+      font-weight: bold;
+    }
+    button {
+      margin-top: 30px;
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+    }
+    #result {
+      margin-top: 40px;
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>IDEO5 성향 테스트</h1>
+  <form id="testForm">
+    <!-- 각 질문 항목 -->
+    <div class="question">
+      <p>Q1. “나는 내가 여기에 존재한다는 걸…”</p>
+      <label><input type="radio" name="q1" value="A"> A. 온몸으로 느낄 수 있다.</label><br>
+      <label><input type="radio" name="q1" value="B"> B. 사실 실감이 잘 안 나. 꿈속 같아.</label>
+    </div>
+    <div class="question">
+      <p>Q2. “죽음 이후 나는…”</p>
+      <label><input type="radio" name="q2" value="A"> A. 뭔가가 남아 있을 거라고 생각해.</label><br>
+      <label><input type="radio" name="q2" value="B"> B. 그냥 끝일 거야. 꺼지는 전원처럼.</label>
+    </div>
+    <div class="question">
+      <p>Q3. “세상과 나 사이엔…”</p>
+      <label><input type="radio" name="q3" value="A"> A. 분명한 경계가 있고, 나는 독립된 개체다.</label><br>
+      <label><input type="radio" name="q3" value="B"> B. 경계가 흐릿하고, 나도 흐름의 일부다.</label>
+    </div>
+    <div class="question">
+      <p>Q4. “삶의 의미는…”</p>
+      <label><input type="radio" name="q4" value="A"> A. 내가 스스로 만들어가는 것.</label><br>
+      <label><input type="radio" name="q4" value="B"> B. 원래 없고, 사람들은 그냥 착각하는 거야.</label>
+    </div>
+    <div class="question">
+      <p>Q5. “고통은…”</p>
+      <label><input type="radio" name="q5" value="A"> A. 성장의 일부야. 이유가 있다고 생각해.</label><br>
+      <label><input type="radio" name="q5" value="B"> B. 무의미하고 가능하면 피해야 해.</label>
+    </div>
+    <div class="question">
+      <p>Q6. “나는 어떤 상황에서도…”</p>
+      <label><input type="radio" name="q6" value="A"> A. 의미를 찾으려 한다.</label><br>
+      <label><input type="radio" name="q6" value="B"> B. 의미를 애써 붙이지 않으려 한다.</label>
+    </div>
+    <div class="question">
+      <p>Q7. “나는 지금 내 인생을…”</p>
+      <label><input type="radio" name="q7" value="A"> A. 선택하고 있다고 생각해.</label><br>
+      <label><input type="radio" name="q7" value="B"> B. 환경과 유전자대로 살고 있을 뿐이야.</label>
+    </div>
+    <div class="question">
+      <p>Q8. “삶은 결국…”</p>
+      <label><input type="radio" name="q8" value="A"> A. 내가 밀고 나가야 하는 여정.</label><br>
+      <label><input type="radio" name="q8" value="B"> B. 나를 끌고 가는 흐름에 불과해.</label>
+    </div>
+    <div class="question">
+      <p>Q9. “내 선택은…”</p>
+      <label><input type="radio" name="q9" value="A"> A. 나에게 책임이 있다고 느낀다.</label><br>
+      <label><input type="radio" name="q9" value="B"> B. 이미 짜여진 조건 속에서 일어난 반응일 뿐이다.</label>
+    </div>
+    <div class="question">
+      <p>Q10. “나는 타인의 시선을…”</p>
+      <label><input type="radio" name="q10" value="A"> A. 의식하지 않고 내 중심으로 살아가려 해.</label><br>
+      <label><input type="radio" name="q10" value="B"> B. 꽤 중요하게 느끼고 영향을 받아.</label>
+    </div>
+    <div class="question">
+      <p>Q11. “나라는 존재는…”</p>
+      <label><input type="radio" name="q11" value="A"> A. 혼자서도 성립 가능하다고 생각해.</label><br>
+      <label><input type="radio" name="q11" value="B"> B. 타인과의 관계 안에서만 진짜 존재해.</label>
+    </div>
+    <div class="question">
+      <p>Q12. “나는 혼자 있을 때…”</p>
+      <label><input type="radio" name="q12" value="A"> A. 더 나다운 것 같고 편하다.</label><br>
+      <label><input type="radio" name="q12" value="B"> B. 때로는 존재감이 희미해진다.</label>
+    </div>
+    <div class="question">
+      <p>Q13. “시간은…”</p>
+      <label><input type="radio" name="q13" value="A"> A. 앞으로 나아가는 직선이다.</label><br>
+      <label><input type="radio" name="q13" value="B"> B. 반복되고 돌고 도는 순환이다.</label>
+    </div>
+    <div class="question">
+      <p>Q14. “역사는…”</p>
+      <label><input type="radio" name="q14" value="A"> A. 진보하고 축적된다고 믿는다.</label><br>
+      <label><input type="radio" name="q14" value="B"> B. 결국 되풀이일 뿐, 본질은 안 변한다.</label>
+    </div>
+    <div class="question">
+      <p>Q15. “나는 인생을…”</p>
+      <label><input type="radio" name="q15" value="A"> A. 계속 쌓여가는 과정이라 느낀다.</label><br>
+      <label><input type="radio" name="q15" value="B"> B. 정해진 패턴 안을 순환하는 느낌이다.</label>
+    </div>
+    <button type="button" onclick="calculateResult()">결과 보기</button>
+  </form>
+  <div id="result"></div>
+  <script>
+    function calculateResult() {
+      const form = document.getElementById('testForm');
+      const result = document.getElementById('result');
+      const axes = [
+        ['q1', 'q2', 'q3'],
+        ['q4', 'q5', 'q6'],
+        ['q7', 'q8', 'q9'],
+        ['q10', 'q11', 'q12'],
+        ['q13', 'q14', 'q15']
+      ];
+      let code = '';
+      for (let group of axes) {
+        let aCount = 0;
+        let bCount = 0;
+        for (let q of group) {
+          const selected = form.querySelector(`input[name=${q}]:checked`);
+          if (!selected) {
+            alert('모든 문항에 답변해 주세요.');
+            return;
+          }
+          const selectedValue = selected.value;
+          if (selectedValue === 'A') aCount++;
+          else if (selectedValue === 'B') bCount++;
+        }
+        code += aCount > bCount ? 'A' : 'B';
+      }
+      result.textContent = `당신의 성향 코드는: ${code}`;
+    }
+  </script>
+</body>
+</html>
